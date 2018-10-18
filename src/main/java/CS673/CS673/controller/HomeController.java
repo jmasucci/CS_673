@@ -3,6 +3,7 @@ package CS673.CS673.controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -41,8 +42,9 @@ public class HomeController {
 		String username = "java";
 		String password = "password";
 		PreparedStatement statement = null;
+		PreparedStatement statement1 = null;
 		Connection connection = null;
-		
+		ResultSet resultSet = null;
 	
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -53,6 +55,27 @@ public class HomeController {
 		System.out.println("Connecting database...");
 		try{
 		   connection = DriverManager.getConnection(url, username, password);
+		   String sql1 = "Select count(*) from login_table where email=?";
+		   statement1 = connection.prepareStatement(sql1);
+		   statement1.setString(1, user.getEmail());
+		   resultSet = statement1.executeQuery();
+		   
+		   int counter = 0;
+		   while(resultSet.next())
+		   {
+			   counter++;
+		   }
+		   
+		   if(counter> 0)
+		   {
+		   System.out.println(counter);
+		   // update to insert error message (may need to redirect to new page with information
+		   // fill in )
+		   return "Registration";
+		   }
+		   
+		   // validate all fields are Strings and that age is a # 
+		   
 		   String sql = "INSERT INTO login_table (email, password, first_name, last_name, age) VALUES (?, ?, ?, ?, ?)";
 		   statement = connection.prepareStatement(sql);
 		   statement.setString(1, user.getEmail());
@@ -66,6 +89,13 @@ public class HomeController {
 		    throw new IllegalStateException("Cannot connect the database!", e);
 		}
 		finally{
+		      try{
+			         if(resultSet!=null)
+			        	 connection.close();
+			      }catch(SQLException se){
+			         se.printStackTrace();
+			      }//end finally try
+			
 		      //finally block used to close resources
 		      try{
 		         if(statement!=null)
