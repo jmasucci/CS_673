@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import CS673.CS673.code.UserRegistration;
 
 @Controller
-@RequestMapping(value = "/register")
 public class HomeController {
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/register",method = RequestMethod.GET)
 	public String viewRegistration(Map<String, Object> model) {
 		UserRegistration userForm = new UserRegistration();
 		System.out.println(userForm.getFirstName());
@@ -34,7 +34,7 @@ public class HomeController {
 		
 		return "Registration";
 	}
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String processRegistration(@ModelAttribute("userForm") UserRegistration user, 
 			Map<String, Object> model) {
 		
@@ -58,10 +58,10 @@ public class HomeController {
 		   String sql1 = "Select count(*) from login_table where email=?";
 		   statement1 = connection.prepareStatement(sql1);
 		   statement1.setString(1, user.getEmail());
+		   System.out.println(user.getEmail());
 		   resultSet = statement1.executeQuery();
-		   
 		   int counter = 0;
-		   while(resultSet.next())
+		   if(!resultSet.isBeforeFirst())
 		   {
 			   counter++;
 		   }
@@ -71,6 +71,7 @@ public class HomeController {
 		   System.out.println(counter);
 		   // update to insert error message (may need to redirect to new page with information
 		   // fill in )
+		   counter = 0;
 		   return "Registration";
 		   }
 		   
@@ -79,7 +80,9 @@ public class HomeController {
 		   String sql = "INSERT INTO login_table (email, password, first_name, last_name, age) VALUES (?, ?, ?, ?, ?)";
 		   statement = connection.prepareStatement(sql);
 		   statement.setString(1, user.getEmail());
-		   statement.setString(2, user.getPassword());
+		   String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+		   user.setpassword(hashed);
+		   statement.setString(2, hashed);
 		   statement.setString(3, user.getFirstName());
 		   statement.setString(4, user.getLastName());
 		   statement.setLong(5, user.getAge());
@@ -133,6 +136,31 @@ public class HomeController {
 		
 		
 		return "RegistrationSuccess";
+	}
+	
+	// handle login
+
+	/*
+	 * if (BCrypt.checkpw(candidate, hashed)) 
+	 * System.out.println("It matches"); 
+	 * else
+	 * System.out.println("It does not match");
+	 */
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String Login(Map<String, Object> model) {
+		UserRegistration userForm = new UserRegistration();
+		System.out.println(userForm.getFirstName());
+		model.put("userForm", userForm);
+		//model.put("firstName", userForm.);
+		
+		return "Registration";
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String processLogin(@ModelAttribute("userForm") UserRegistration user, 
+			Map<String, Object> model) {
+				return null;
+	
 	}
 }
 
