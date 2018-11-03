@@ -5,19 +5,44 @@
 <div id="background">
 <h2>Edit your user profile</h2>
 <p><strong>*Required</strong><p> 
+
+<script type="text/javascript">
+function validateForm() {
+
+var x=document.forms["myForm"]["fullname"].value;
+if (x==null || x=="") {
+  alert("Full name must be filled out");
+  return false;
+  } 
+
+var y=document.forms["myForm"]["email"].value;
+if (y==null || y=="")
+  {
+  alert("Email must be filled out");
+  return false;
+  }
+
+var z=document.forms["myForm"]["pword"].value;
+if (z==null || z=="") {
+  alert("Password name must be filled out");
+  return false;
+  } 
+    }
+</script>
+
 <div class="loginbox">
 <img src="avatar.png" class="avatar">
-<form>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
 *Full name<br>
-    <input type="text" name="" placeholder="Enter Full Name">
-<br><br>
+    <input type="text" name="fullname" placeholder="Enter Full Name">
+<br>
 
 *Email Address<br>
-    <input type="text" name="" placeholder="Enter Email">
+    <input type="text" name="email" placeholder="Enter Email">
 <br>
 
 *Password<br>
-    <input type="password" name="" placeholder="Enter Password">
+    <input type="password" name="pword" placeholder="Enter Password">
 <br>
 
 *Gender<br>
