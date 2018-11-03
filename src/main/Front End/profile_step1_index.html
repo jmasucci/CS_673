@@ -1,23 +1,48 @@
 <html>
 <body>
-<title>ROOMMATE FINDER-STEP 1</title>
+<title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="profile_step1_style.css">
 <h2>Profile Creation - Step 1</h2>
-<p>*Please fill out <strong>ALL</strong> the details below<p> 
+<p>*Please fill out <strong>ALL</strong> the details below<p>
+
+<script type="text/javascript">
+function validateForm() {
+
+var x=document.forms["myForm"]["fullname"].value;
+if (x==null || x=="") {
+  alert("Full name must be filled out");
+  return false;
+  } 
+
+var y=document.forms["myForm"]["email"].value;
+if (y==null || y=="")
+  {
+  alert("Email must be filled out");
+  return false;
+  }
+
+var y=document.forms["myForm"]["pword"].value;
+if (z==null || z=="") {
+  alert("Password name must be filled out");
+  return false;
+  } 
+    }
+</script>
+ 
 <div class="loginbox">
 <img src="avatar.png" class="avatar">
-<form>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
 
 *Full name<br>
-    <input type="text" name="" placeholder="Enter Full Name">
+    <input type="text" name="fullname" placeholder="Enter Full Name">
 <br><br>
 
 *Email Address<br>
-    <input type="text" name="" placeholder="Enter Email">
+    <input type="text" name="email" placeholder="Enter Email">
 <br>
 
 *Password<br>
-    <input type="password" name="" placeholder="Enter Password">
+    <input type="password" name="pword" placeholder="Enter Password">
 <br>
 
 *Gender<br>
