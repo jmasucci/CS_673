@@ -26,15 +26,15 @@ public class UserRegistration {
     {
 		return email;
     }
-    public String getconfirmpw()
+    public String getConfirmpw()
     {
     	return confirmpw;
     }
-    public void setpassword(String pw)
+    public void setPassword(String pw)
     {
 		password = pw;
     }
-    public void setpasswordconfirm(String pw)
+    public void setConfirmpw(String pw)
     {
 		confirmpw = pw;
     }
