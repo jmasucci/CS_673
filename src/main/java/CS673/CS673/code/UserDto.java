@@ -1,13 +1,36 @@
 package CS673.CS673.code;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-public class UserRegistration {
+import CS673.CS673.validator.PasswordMatches;
+import CS673.CS673.validator.ValidEmail;
 
+@PasswordMatches
+public class UserDto {
+
+	@NotNull
+	@Size(min = 1)
     private String firstName;
+	
+	@NotNull
+	@Size(min = 1)
     private String lastName;
-    private String password;
-    private String confirmpw;
-    private String email;
+	
+	@NotNull
+	@Size(min = 1)
+	private String password;
+	
+	@NotNull
+	@Size(min = 1)
+	private String confirmpw;
+	
+	@ValidEmail
+	@NotNull
+	@Size(min = 1)
+	private String email;
+	
+	@NotNull
 	private Integer age;
      
     public String getFirstName()
@@ -55,7 +78,6 @@ public class UserRegistration {
 		age = inputage;
 	}
 	public String getPassword() {
-		// TODO Auto-generated method stub
 		return password;
 	}
 }

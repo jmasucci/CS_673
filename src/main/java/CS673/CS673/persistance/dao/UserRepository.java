@@ -1,9 +1,11 @@
-package CS673.CS673.database;
+package CS673.CS673.persistance.dao;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import CS673.CS673.persistance.model.User;
 
 //This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 //CRUD refers Create, Read, Update, Delete
@@ -11,5 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-	List<User> findByEmail(String email);
+	User findByEmail(String email);
 }

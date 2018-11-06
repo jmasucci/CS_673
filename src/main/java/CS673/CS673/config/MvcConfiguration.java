@@ -12,7 +12,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EntityScan(basePackages="CS673.CS673")
 @EnableAutoConfiguration
 @PropertySource("application.properties")
-public class MvcConfiguration extends WebMvcConfigurerAdapter{
+public class MvcConfiguration implements WebMvcConfigurer{
 
 	@Bean
 	public ViewResolver getViewResolver(){

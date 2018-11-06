@@ -1,79 +1,74 @@
 package CS673.CS673.controller;
 
-import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
-import CS673.CS673.code.UserRegistration;
-import CS673.CS673.database.User;
-import CS673.CS673.database.UserRepository;
+import CS673.CS673.code.UserDto;
+import CS673.CS673.error.EmailExistsException;
+import CS673.CS673.persistance.model.User;
+import CS673.CS673.service.IUserService;
+import CS673.CS673.persistance.dao.UserRepository;
 
 @Controller
-@RequestMapping(value = "/register")
 public class RegistrationController {
 
 	@Autowired
 	private UserRepository userRepository;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@Autowired
+	private IUserService userService;
+	
+	public RegistrationController() {
+        super();
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String viewRegistration(Map<String, Object> model) {
-		UserRegistration userForm = new UserRegistration();
+		UserDto userForm = new UserDto();
 		model.put("userForm", userForm);
 		return "Registration";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public String processRegistration(@ModelAttribute("userForm") UserRegistration userRegistration, 
-			Map<String, Object> model) {
-
-		// Check error here. (password and confirm password match, already exists, ...)
-		String password = userRegistration.getPassword();
-		String confirmPassword = userRegistration.getConfirmpw();
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ModelAndView processRegistration(@Valid @ModelAttribute("userForm") UserDto userRegistration, 
+			 BindingResult result, 
+			  WebRequest request, 
+			  Errors errors) {
 		
-		if (!(password.equals(confirmPassword)))
-		{
-			// insert error type
-			System.out.println("Passwords doesn't match : " + password + " - " + confirmPassword);
-			return "Registration";
+		User registered = new User();
+		if (!result.hasErrors()) {
+			registered = createUserAccount(userRegistration, result);
 		}
-		
-		String email = userRegistration.getEmail();
-		List<User> persons = userRepository.findByEmail(email);
-		
-		if (persons.size() > 0)
-		{
-			// insert error type
-			System.out.println("An account already exists with the email : " + email);
-			return "Registration";
+		if (registered == null) {
+			result.rejectValue("email", "message.regError");
 		}
-		
-		// End error checking
-		
-		// Hash password
-		String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-				
-		// Create user entity
-		User user = new User();
-		user.setAge(userRegistration.getAge());
-		user.setEmail(email);
-		user.setFirstName(userRegistration.getFirstName());
-		user.setLastName(userRegistration.getLastName());
-		user.setPassword(hashed);
-		
-		// Save entity in database
-		userRepository.save(user);
-		
-		System.out.println("password: " + user.getPassword());
-		System.out.println("username: " + user.getFirstName());
-		System.out.println("password: " + user.getPassword());
-		System.out.println("email: " + user.getEmail());
-		System.out.println("birth date: " + user.getAge());
-		return "RegistrationSuccess";
+		if (result.hasErrors()) {
+			return new ModelAndView("Registration", "userForm", userRegistration);
+		}
+		else {
+			return new ModelAndView("RegistrationSuccess", "userForm", userRegistration);
+		}	
+	}
+	
+	private User createUserAccount(UserDto userRegistration, BindingResult result) {
+		User registered = null;
+		try {
+			registered = userService.registerNewUserAccount(userRegistration);
+		} catch (EmailExistsException e) {
+			return null;
+		}
+		return registered;
 	}
 }
 

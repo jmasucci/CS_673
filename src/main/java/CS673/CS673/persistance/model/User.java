@@ -1,4 +1,4 @@
-package CS673.CS673.database;
+package CS673.CS673.persistance.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
