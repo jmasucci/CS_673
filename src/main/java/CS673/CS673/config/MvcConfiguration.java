@@ -33,4 +33,5 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public MultipartResolver multipartResolver(){
 		return new CommonsMultipartResolver();
 	}
+
 }
