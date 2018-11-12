@@ -1,16 +1,39 @@
 <html>
 <head>
 <title>ROOMMATE FINDER-HOME</title>
-    <link rel="stylesheet" type="text/css" href="login_style.css">
+<link rel="stylesheet" type="text/css" href="login_style.css">
+
+<script type="text/javascript">
+function validateForm() {
+
+var x=document.forms["myForm"]["email"].value;
+if (x==null || x=="")
+  {
+  alert("Email must be filled out");
+  return false;
+  }
+
+var y=document.forms["myForm"]["pword"].value;
+if (y==null || y=="") {
+  alert("Password name must be filled out");
+  return false;
+  }
+    }
+</script>
+
 <body>
     <div class="loginbox"> 
     <img src="avatar.png" class="avatar">
         <h1>ROOMMATE FINDER</h1>
+<<<<<<< HEAD
         <form:form action="register" method="post" modelAttribute="userForm">
+=======
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+>>>>>>> branch 'master' of https://github.com/jmasucci/CS_673
             <p>Email</p>
-            <input type="text" name="" placeholder="Enter Email">
+            <input type="text" name="email" placeholder="Enter Email">
             <p>Password</p>
-            <input type="password" name="" placeholder="Enter Password">
+            <input type="password" name="pword" placeholder="Enter Password">
             <input type="submit" name="" value="Login">
             <a href="#">Lost your password?</a><br>
             <a href="profile_step1_index.html">Don't have an account?</a>

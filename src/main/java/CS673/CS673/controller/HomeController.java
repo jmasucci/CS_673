@@ -84,7 +84,7 @@ public class HomeController {
 		   statement = connection.prepareStatement(sql);
 		   statement.setString(1, user.getEmail());
 		   String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-		   user.setpassword(hashed);
+		   user.setPassword(hashed);
 		   statement.setString(2, hashed);
 		   statement.setString(3, user.getFirstName());
 		   statement.setString(4, user.getLastName());
@@ -130,7 +130,7 @@ public class HomeController {
 		
 		// for testing purpose:
 		System.out.println("password: " + user.getPassword());
-		System.out.println("confirmed password: " + user.getconfirmpw());
+		System.out.println("confirmed password: " + user.getConfirmpw());
 		System.out.println("username: " + user.getFirstName());
 		System.out.println("password: " + user.getPassword());
 		System.out.println("email: " + user.getEmail());

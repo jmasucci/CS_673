@@ -1,51 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <html>
 <body>
 <title>ROOMMATE FINDER</title>
-<link rel="stylesheet" type="text/css" href="profile_step1_style.css">
-<h2>Profile Creation - Step 1</h2>
-<p>*Please fill out <strong>ALL</strong> the details below<p>
-
-<script type="text/javascript">
-function validateForm() {
-
-var x=document.forms["myForm"]["fullname"].value;
-if (x==null || x=="") {
-  alert("Full name must be filled out");
-  return false;
-  } 
-
-var y=document.forms["myForm"]["email"].value;
-if (y==null || y=="")
-  {
-  alert("Email must be filled out");
-  return false;
-  }
-
-var z=document.forms["myForm"]["pword"].value;
-if (z==null || z=="") {
-  alert("Password name must be filled out");
-  return false;
-  } 
-    }
-</script>
- 
+<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/filter_search_style.css">
+<div id="background">
+<h2>Look for a roommate</h2>
+<p><strong>*Required fields</strong><p> 
 <div class="loginbox">
-<img src="avatar.png" class="avatar">
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-
-*Full name<br>
-    <input type="text" name="fullname" placeholder="Enter Full Name">
-<br><br>
-
-*Email Address<br>
-    <input type="text" name="email" placeholder="Enter Email">
-<br>
-
-*Password<br>
-    <input type="password" name="pword" placeholder="Enter Password">
-<br>
-
-*Gender<br>
+<img src="resources/avatar.png" class="avatar">
+<form:form action="search" method="post" modelAttribute="searchForm">
+<p>*Gender</p>
 <select>
     <option value="male">Male</option>
     <option value="female">Female</option>
@@ -53,7 +20,7 @@ if (z==null || z=="") {
 </select>
 
 <br><br>
-*City, State<br>
+<p>*City, State</p>
 <select>
     <option value="princeton">Princeton, NJ</option>
     <option value="cambridge">Cambridge, MA</option>
@@ -158,7 +125,8 @@ if (z==null || z=="") {
     <option value="saltlakecity">Salt Lake City, UT</option>
 </select>
 <br><br>
-*Your age range<br>
+
+<p>*The person's age range</p>
 <select>
     <option value="18-28">18-28</option>
     <option value="29-39">29-39</option>
@@ -167,11 +135,52 @@ if (z==null || z=="") {
     <option value="65+">60+</option>
 </select>
 <br><br>
-<a href="login_index.html">Home</a>
-<br><br>
-<input type="submit" name="" value="Next">
 
-</form>
+<p>*Their Pets</p>
+<select name="Pets" multiple>
+  <option value="Cat">Cat</option>
+  <option value="Dog">Dog</option>
+  <option value="NoPets">None</option>
+</select>
+<br><br>
+
+<p>*Their drinking habbit</p>
+<select>
+    <option value="FrequentlyDrinks">Frequently</option>
+    <option value="OccasionallyDrinks">Occasionally</option>
+    <option value="NeverDrinks">Never</option>
+</select>
+<br><br>
+
+<p>*Their smoking habits</p>
+<select>
+    <option value="OftenSmokes">Frequently</option>
+    <option value="OccasionallySmokes">Occasionally</option>
+    <option value="NeverSmokes">Never</option>
+</select>
+<br><br>
+
+<p>*Their ideal room price range</p>
+<select>
+    <option value="$800-$1200">$800-$1200</option>
+    <option value="$1200-$1600">$1200-$1600</option>
+    <option value="$1600-$2000">$1600-$2000</option>
+	<option value="$2000-$2400">$2000-$2400</option>
+</select>
+<br><br>
+
+<p>*Number of roommates they wish to live with</p>
+<select>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+	<option value="4+">4+</option>
+</select>
+<br><br>
+<input type="submit" name="" value="Search"><br>
+<a href="login">Sign Out</a>
+</form:form>
+</div>
 </div>
 </body>
 </html>

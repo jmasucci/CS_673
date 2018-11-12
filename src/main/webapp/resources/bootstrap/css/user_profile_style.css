@@ -1,12 +1,15 @@
 body{
     margin: 0;
     padding: 0;
+    background: url(pic1.jpg);
+    background-size: cover;
+    background-position: center;
     font-family: sans-serif;
 }
  
 .loginbox{
     width: 520px;
-    height: 1200px;
+    height: 1250px;
     background: #000;
     color: #fff;
     top: 95%;

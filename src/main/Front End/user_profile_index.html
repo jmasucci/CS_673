@@ -3,24 +3,49 @@
 <title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="user_profile_style.css">
 <div id="background">
-<h2>User Profile</h2>
+<h2>Edit your user profile</h2>
 <p><strong>*Required</strong><p> 
+
+<script type="text/javascript">
+function validateForm() {
+
+var x=document.forms["myForm"]["fullname"].value;
+if (x==null || x=="") {
+  alert("Full name must be filled out");
+  return false;
+  } 
+
+var y=document.forms["myForm"]["email"].value;
+if (y==null || y=="")
+  {
+  alert("Email must be filled out");
+  return false;
+  }
+
+var z=document.forms["myForm"]["pword"].value;
+if (z==null || z=="") {
+  alert("Password must be filled out");
+  return false;
+  } 
+    }
+</script>
+
 <div class="loginbox">
 <img src="avatar.png" class="avatar">
-<form>
-*Full name<br>
-    <input type="text" name="" placeholder="Enter Full Name">
-<br><br>
-
-*Email Address<br>
-    <input type="text" name="" placeholder="Enter Email">
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+<p>*Full name</p>
+    <input type="text" name="fullname" placeholder="Enter Full Name">
 <br>
 
-*Password<br>
-    <input type="password" name="" placeholder="Enter Password">
+<p>*Email Address</p>
+    <input type="text" name="email" placeholder="Enter Email">
 <br>
 
-*Gender<br>
+<p>*Password</p>
+    <input type="password" name="pword" placeholder="Enter Password">
+<br>
+
+<p>*Gender</p>
 <select>
     <option value="male">Male</option>
     <option value="female">Female</option>
@@ -28,7 +53,7 @@
 </select>
 
 <br><br>
-*City, State<br>
+<p>*City, State</p>
 <select>
     <option value="princeton">Princeton, NJ</option>
     <option value="cambridge">Cambridge, MA</option>
@@ -133,7 +158,7 @@
     <option value="saltlakecity">Salt Lake City, UT</option>
 </select>
 <br><br>
-*Your age range<br>
+<p>*Your age range</p>
 <select>
     <option value="18-28">18-28</option>
     <option value="29-39">29-39</option>
@@ -144,9 +169,10 @@
 <br><br>
 
 <p>*Pets</p>
-<select name="Pets" multiple>
+<select>
   <option value="Cat">Cat</option>
   <option value="Dog">Dog</option>
+  <option value="NoPets">None</option>
 </select>
 <br><br>
 
@@ -222,8 +248,7 @@
 <textarea rows="4" cols="50" name="comment" maxlength="300">Enter text here...</textarea>
 <br><br>
 
-
-<input type="submit" name="" value="Save">
+<input type="submit" name="" value="Save" href="filter_search_index.html">
 
 </form>
 </div>

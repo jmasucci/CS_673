@@ -1,8 +1,12 @@
 package CS673.CS673.config;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -14,6 +18,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages="CS673.CS673")
 @EnableWebMvc
+@EnableJpaRepositories(basePackages = {"CS673.CS673"})
+@EntityScan(basePackages="CS673.CS673")
+@EnableAutoConfiguration
+@PropertySource("application.properties")
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean
