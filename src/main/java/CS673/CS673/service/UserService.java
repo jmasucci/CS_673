@@ -6,8 +6,11 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import CS673.CS673.code.LoginDto;
 import CS673.CS673.code.UserDto;
+import CS673.CS673.error.BadPasswordException;
 import CS673.CS673.error.EmailExistsException;
+import CS673.CS673.error.UserNotExistsException;
 import CS673.CS673.persistance.dao.UserRepository;
 import CS673.CS673.persistance.model.User;
 
@@ -37,6 +40,29 @@ public class UserService implements IUserService {
 				
 		// Save entity in database
 		return repository.save(user);
+	}
+	
+	@Override
+	public User logUser(LoginDto user) throws UserNotExistsException, BadPasswordException {
+		String email = user.getEmail();
+		String password = user.getPassword();
+		
+		User toConnect = repository.findByEmail(email);
+		if (toConnect == null)
+		{
+			throw new UserNotExistsException("There is no user " + email);
+		}
+		else
+		{
+			if (BCrypt.checkpw(email, toConnect.getPassword()))
+			{
+				return toConnect;
+			}
+			else
+			{
+				throw new BadPasswordException("Wrong password");
+			}
+		}
 	}
 	
 	private boolean emailExist(String email) {

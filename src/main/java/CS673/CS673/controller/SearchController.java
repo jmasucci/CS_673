@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import CS673.CS673.code.Search;
-import CS673.CS673.code.UserRegistration;
 
 @EnableWebMvc
 @Controller
@@ -27,7 +26,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value = "/filter_search_index", method = RequestMethod.POST)
-	public String processRegistration(@ModelAttribute("userForm") UserRegistration user, 
+	public String processRegistration(@ModelAttribute("searchForm") Search form, 
 			Map<String, Object> model) {
 		
 		Search searchForm = new Search();

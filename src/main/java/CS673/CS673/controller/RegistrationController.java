@@ -22,10 +22,6 @@ import CS673.CS673.persistance.dao.UserRepository;
 
 @Controller
 public class RegistrationController {
-
-	@Autowired
-	private UserRepository userRepository;
-	
 	@Autowired
 	private IUserService userService;
 	
@@ -57,7 +53,7 @@ public class RegistrationController {
 			return new ModelAndView("Registration", "userForm", userRegistration);
 		}
 		else {
-			return new ModelAndView("RegistrationSuccess", "userForm", userRegistration);
+			return new ModelAndView("redirect:/profile");
 		}	
 	}
 	
