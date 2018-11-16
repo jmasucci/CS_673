@@ -7,51 +7,12 @@
 <title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/user_profile_style.css">
 <div id="background">
-<h2>Create your user profile</h2>
+<h2>Modify your user profile</h2>
 <p><strong>*Required</strong><p> 
-
-<script type="text/javascript">
-function validateForm() {
-
-var x=document.forms["myForm"]["fullname"].value;
-if (x==null || x=="") {
-  alert("Full name must be filled out");
-  return false;
-  } 
-
-var y=document.forms["myForm"]["email"].value;
-if (y==null || y=="")
-  {
-  alert("Email must be filled out");
-  return false;
-  }
-
-var z=document.forms["myForm"]["pword"].value;
-if (z==null || z=="") {
-  alert("Password must be filled out");
-  return false;
-  } 
-    }
-</script>
 
 <div class="loginbox">
 <img src="resources/avatar.png" class="avatar">
-<form:form name="myForm" action="register" onsubmit="return validateForm()" method="post" modelAttribute="userForm">
-<p>*Full name</p>
-    <form:input path="fullname" type="text" name="fullname" placeholder="Enter Full Name"></form:input>
-<br>
-
-<p>*Email Address</p>
-    <form:input path="email" type="text" name="email" placeholder="Enter Email"/>
-<br>
-
-<p>*Password</p>
-    <form:input path="password" type="password" name="pword" placeholder="Enter Password"/>
-<br>
-
-<p>*Confirm password</p>
-    <form:input path="confirmpw" type="password" name="pword" placeholder="Enter Password"/>
-<br>
+<form:form name="myForm" action="profile" method="post" modelAttribute="profileForm">
 
 <p>*Gender</p>
 <form:select path="gender">
@@ -250,7 +211,7 @@ if (z==null || z=="") {
 <form:textarea path="description" rows="4" cols="50" name="comment" maxlength="300" placeholder="Enter text here..."></form:textarea>
 <br><br>
 
-<input type="submit" name="" value="Register">
+<input type="submit" name="" value="Update">
 
 </form:form>
 </div>

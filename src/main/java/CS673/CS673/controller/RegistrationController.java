@@ -53,7 +53,7 @@ public class RegistrationController {
 			return new ModelAndView("Registration", "userForm", userRegistration);
 		}
 		else {
-			return new ModelAndView("redirect:/profile");
+			return new ModelAndView("redirect:/login");
 		}	
 	}
 	

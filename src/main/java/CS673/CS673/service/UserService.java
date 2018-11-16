@@ -4,9 +4,11 @@ import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.jaxb.SpringDataJaxb.PageDto;
 import org.springframework.stereotype.Service;
 
 import CS673.CS673.code.LoginDto;
+import CS673.CS673.code.ProfileDto;
 import CS673.CS673.code.UserDto;
 import CS673.CS673.error.BadPasswordException;
 import CS673.CS673.error.EmailExistsException;
@@ -34,10 +36,20 @@ public class UserService implements IUserService {
 		User user = new User();
 		user.setAge(userRegistration.getAge());
 		user.setEmail(userRegistration.getEmail());
-		user.setFirstName(userRegistration.getFirstName());
-		user.setLastName(userRegistration.getLastName());
+		user.setCity(userRegistration.getCity());
+		user.setDescription(userRegistration.getDescription());
+		user.setDrinks(userRegistration.getDrinks());
+		user.setEthnicity(userRegistration.getEthnicity());
+		user.setFullname(userRegistration.getFullname());
+		user.setGender(userRegistration.getGender());
+		user.setPets(userRegistration.getPets());
+		user.setPhysical(userRegistration.getPhysical());
+		user.setReligion(userRegistration.getReligion());
+		user.setRoomprice(userRegistration.getRoomprice());
+		user.setSmokes(userRegistration.getSmokes());
+		user.setRoommates(userRegistration.getRoommates());
 		user.setPassword(hashed);
-				
+
 		// Save entity in database
 		return repository.save(user);
 	}
@@ -63,6 +75,11 @@ public class UserService implements IUserService {
 				throw new BadPasswordException("Wrong password");
 			}
 		}
+	}
+	
+	@Override
+	public User updateUser(ProfileDto profile) {
+		return null;
 	}
 	
 	private boolean emailExist(String email) {

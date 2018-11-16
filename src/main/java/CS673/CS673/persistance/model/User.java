@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
@@ -16,16 +18,33 @@ public class User
 	@Column(name="user_id")
 	private Integer id;
 	
-	@Column(name="first_name")
-	private String firstName;
+	private String fullname;
 	
-	@Column(name="last_name")
-    private String lastName;
-	
-	@Column(name="password")
     private String password;
     
+	private String gender;
+	
+	private String city;
+	
+	private String pets;
+	
+	private String drinks;
+	
+	private String smokes;
+	
+	private String roomprice;
+	
+	private String ethnicity;
+	
+	private String religion;
+	
+	private String physical;
+	
+	private String description;
+	
 	private String email;
+	
+	private String roommates;
 	
 	private Integer age;
 	
@@ -37,26 +56,6 @@ public class User
 	public void setId(Integer id)
 	{
 		this.id = id;
-	}
-	
-	public String getFirstName()
-	{
-		return firstName;
-	}
-	
-	public void setFirstName(String firstName)
-	{
-		this.firstName = firstName;
-	}
-	
-	public String getLastName()
-	{
-		return lastName;
-	}
-	
-	public void setLastName(String lastName)
-	{
-		this.lastName = lastName;
 	}
 	
 	public String getPassword()
@@ -87,5 +86,101 @@ public class User
 	public void setAge(Integer age)
 	{
 		this.age = age;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getPets() {
+		return pets;
+	}
+
+	public void setPets(String pets) {
+		this.pets = pets;
+	}
+
+	public String getDrinks() {
+		return drinks;
+	}
+
+	public void setDrinks(String drinks) {
+		this.drinks = drinks;
+	}
+
+	public String getSmokes() {
+		return smokes;
+	}
+
+	public void setSmokes(String smokes) {
+		this.smokes = smokes;
+	}
+
+	public String getRoomprice() {
+		return roomprice;
+	}
+
+	public void setRoomprice(String roomprice) {
+		this.roomprice = roomprice;
+	}
+
+	public String getEthnicity() {
+		return ethnicity;
+	}
+
+	public void setEthnicity(String ethnicity) {
+		this.ethnicity = ethnicity;
+	}
+
+	public String getReligion() {
+		return religion;
+	}
+
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+
+	public String getPhysical() {
+		return physical;
+	}
+
+	public void setPhysical(String physical) {
+		this.physical = physical;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getRoommates() {
+		return roommates;
+	}
+
+	public void setRoommates(String roommates) {
+		this.roommates = roommates;
 	}
 }
