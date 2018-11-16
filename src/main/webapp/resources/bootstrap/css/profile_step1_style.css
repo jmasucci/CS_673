@@ -9,7 +9,7 @@ body{
 
 .loginbox{
     width: 320px;
-    height: 420px;
+    height: 585px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -26,15 +26,9 @@ body{
     border-radius: 50%;
     position: absolute;
     top: -50px;
-    left: calc(50% -50px);
+    left: calc(50% - 50px);
 }
 
-h1{
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-}
 
 .loginbox p{
     margin: 0;
@@ -57,6 +51,8 @@ h1{
     color: #fff;
     font-size: 16px;
 }
+
+
 .loginbox input[type="submit"]
 {
     border: none;
@@ -73,79 +69,3 @@ h1{
     background: #ffc107;
     color: #000;
 }
-.loginbox a{
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: darkgrey;
-}
-
-.loginbox a:hover
-{
-    color: #ffc107;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

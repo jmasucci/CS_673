@@ -41,4 +41,5 @@ public class MvcConfiguration implements WebMvcConfigurer{
 	public MultipartResolver multipartResolver(){
 		return new CommonsMultipartResolver();
 	}
+
 }

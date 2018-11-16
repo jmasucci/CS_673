@@ -15,6 +15,10 @@
     	<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/bootstrap.css"/>
     	<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/bootstrap-responsive.css"/>
 		<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/style.css"/>
+		<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/filter_search_style.css"/>
+    	<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/user_profile_style.css"/>
+    	<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/login_style.css"/>
+    	<link rel="stylesheet" type="text/css" media="all" href="${baseUrl}/resources/bootstrap/css/profile_step1_style.css"/>
 		<script type="text/javascript" src="${baseUrl}/resources/project.js" ></script>
 		<jsp:invoke fragment="head"/>
 	</head>
