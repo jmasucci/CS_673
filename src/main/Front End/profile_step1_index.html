@@ -1,11 +1,11 @@
 <html>
 <body>
-<title>ROOMMATE FINDER</title>
+<title>STEP 1</title>
 <link rel="stylesheet" type="text/css" href="profile_step1_style.css">
-<h2>Profile Creation - Step 1</h2>
-<p>*Please fill out <strong>ALL</strong> the details below<p>
-
-<script type="text/javascript">
+<br><h2 align="center">PROFILE CREATION - STEP 1</h2>
+<h3 align="center">*Please fill out <strong>ALL</strong> the details below</h3>
+<h2 align="right"><a href="login_index.html" style="color:red">Home/Login</a></h2>
+<!-- <script type="text/javascript">
 function validateForm() {
 
 var x=document.forms["myForm"]["fullname"].value;
@@ -27,34 +27,95 @@ if (z==null || z=="") {
   return false;
   } 
     }
-
-</script>
+</script> -->
  
 <div class="loginbox">
 <img src="avatar.png" class="avatar">
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+<form>
 
-<p>*Full name</p><br>
-    <input type="text" name="fullname" placeholder="Enter Full Name">
-<br><br>
-
-<p>*Email Address</p><br>
-    <input type="text" name="email" placeholder="Enter Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+<p>*Full name</p>
+    <input type="text" name="fullname" placeholder="Enter Full Name" required>
 <br>
-
-<p>*Password</p><br>
-    <input type="password" name="pword" placeholder="Enter Password">
+<p>*Email Address</p>
+    <input type="text" name="email" placeholder="Enter Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 <br>
+<p>*Password</p>
+    <input type="password" id="pword" placeholder="Enter Password" required>
+<br>
+<p>*Confirm Password</p>
+    <input type="password" id="confirm_pword" placeholder="Confirm Password" required>
+<script type="text/javascript">
+var pword = document.getElementById("pword"); 
+var confirm_pword = document.getElementById("confirm_pword");
 
-<p>*Gender</p><br>
+function validatePassword(){
+  if(pword.value != confirm_pword.value) {
+    confirm_pword.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_pword.setCustomValidity('');
+  }
+}
+
+pword.onchange = validatePassword;
+confirm_pword.onkeyup = validatePassword;
+</script>
+<br>
+<p>*Gender</p>
 <select>
     <option value="male">Male</option>
     <option value="female">Female</option>
     <option value="other">Other</option>
 </select>
-
 <br><br>
-<p>*City, State</p><br>
+<p>*Your Age</p>
+<select>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+	<option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+	<option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+	<option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60+">60+</option>
+</select>
+<br><br>
+<p>*City,State</p>
+<!-- <input type="number" name="quantity" placeholder="Age" min="18" max="100"> -->
 <select>
     <option value="princeton">Princeton, NJ</option>
     <option value="cambridge">Cambridge, MA</option>
@@ -159,19 +220,9 @@ if (z==null || z=="") {
     <option value="saltlakecity">Salt Lake City, UT</option>
 </select>
 <br><br>
-<p>*Your age range</p><br>
-<select>
-    <option value="18-28">18-28</option>
-    <option value="29-39">29-39</option>
-    <option value="40-50">40-50</option>
-    <option value="51-65">51-60</option>
-    <option value="65+">60+</option>
-</select>
-<br><br>
-<a href="login_index.html">Home</a>
-<br><br>
-<input type="submit" name="" value="Next">
-
+<input type="submit" href="profile_step2_index.html "name="" value="NEXT">
+<!-- <a href="profile_step2_index.html"><input type="submit" name="" value="Next"></input></a>
+ -->
 </form>
 </div>
 </body>
