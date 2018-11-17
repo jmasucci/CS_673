@@ -1,15 +1,12 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(pic1.jpg);
-    background-size: cover;
-    background-position: center;
     font-family: sans-serif;
 }
  
 .loginbox{
     width: 520px;
-    height: 650px;
+    height: 550px;
     background: #000;
     color: #fff;
     top: 58%;
@@ -35,43 +32,19 @@ body{
     font-weight: bold;
 }
 
-.loginbox input{
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-
-.loginbox input[type="text"]
-{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-}
-
 .loginbox input[type="submit"]
 {
     border: none;
     outline: none;
-    height: 40px;
+    height: 30px;
     background: #fb2525;
     color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
+    font-size: 20px;
+    border-radius: 15px;
 }
 .loginbox input[type="submit"]:hover
 {
     cursor: pointer;
     background: #ffc107;
     color: #000;
-}
-
-.loginbox a{
-    text-decoration: none;
-    font-size: 20px;
-    line-height: 20px;
-    color: darkgrey;
 }
