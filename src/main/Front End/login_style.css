@@ -9,7 +9,7 @@ body{
 
 .loginbox{
     width: 320px;
-    height: 420px;
+    height: 380px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -75,7 +75,7 @@ h1{
 }
 .loginbox a{
     text-decoration: none;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 20px;
     color: darkgrey;
 }
