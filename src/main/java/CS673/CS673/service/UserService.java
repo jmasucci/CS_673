@@ -66,7 +66,7 @@ public class UserService implements IUserService {
 		}
 		else
 		{
-			if (BCrypt.checkpw(email, toConnect.getPassword()))
+			if (BCrypt.checkpw(password, toConnect.getPassword()))
 			{
 				return toConnect;
 			}

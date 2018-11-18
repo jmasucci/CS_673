@@ -29,14 +29,14 @@ public class RegistrationController {
         super();
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/registerer", method = RequestMethod.GET)
 	public String viewRegistration(Map<String, Object> model) {
 		UserDto userForm = new UserDto();
 		model.put("userForm", userForm);
 		return "Registration";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/registerer", method = RequestMethod.POST)
 	public ModelAndView processRegistration(@Valid @ModelAttribute("userForm") UserDto userRegistration, 
 			 BindingResult result, 
 			  WebRequest request, 

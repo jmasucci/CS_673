@@ -6,7 +6,7 @@
 <head>
 <title>ROOMMATE FINDER-HOME</title>
     <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/login_style.css">
-<body>
+<body background="resources/pic1.jpg">
     <div class="loginbox">
     <img src="resources/avatar.png" class="avatar">
         <h1>ROOMMATE FINDER</h1>
@@ -17,7 +17,7 @@
             <form:input type="password" name="" placeholder="Enter Password" path='password'/>
             <input type="submit" name="" value="Login"/>
             <a href="#">Lost your password?</a><br>
-            <a href="profile">Don't have an account?</a>
+            <a href="register">Don't have an account?</a>
         </form:form>
     </div>
 

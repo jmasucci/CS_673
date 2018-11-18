@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-<body>
+<body  background="resources/pic1.jpg">
 <title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/user_profile_style.css">
 <div id="background">

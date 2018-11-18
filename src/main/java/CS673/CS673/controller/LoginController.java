@@ -25,6 +25,12 @@ public class LoginController {
 	@Autowired
 	private IUserService userService;
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String Default()
+	{
+		return "redirect:/login";
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Login(Map<String, Object> model) {
 		LoginDto userForm = new LoginDto();
