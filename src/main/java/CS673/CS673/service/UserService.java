@@ -24,6 +24,7 @@ public class UserService implements IUserService {
 	
 	@Override
 	public User registerNewUserAccount(UserDto userRegistration) throws EmailExistsException {
+		
 		if (emailExist(userRegistration.getEmail())) {
 			throw new EmailExistsException(
 					"There is an account with that email adress: "
@@ -49,7 +50,7 @@ public class UserService implements IUserService {
 		user.setSmokes(userRegistration.getSmokes());
 		user.setRoommates(userRegistration.getRoommates());
 		user.setPassword(hashed);
-
+		
 		// Save entity in database
 		return repository.save(user);
 	}
@@ -80,6 +81,11 @@ public class UserService implements IUserService {
 	@Override
 	public User updateUser(ProfileDto profile) {
 		return null;
+	}
+	
+	@Override
+	public UserDto createRegistration() {
+		return new UserDto();
 	}
 	
 	private boolean emailExist(String email) {

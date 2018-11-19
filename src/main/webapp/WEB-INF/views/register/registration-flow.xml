@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	
+	<on-start>
+		<evaluate expression="userService.createRegistration()" result="flowScope.userDto" />
+	</on-start>
+
+	<view-state id="Registration1" model="userDto">
+		<binder>
+			<binding property="fullname" />
+			<binding property="email" />
+			<binding property="password" />
+			<binding property="confirmpw" />
+			<binding property="gender" />
+			<binding property="city" />
+			<binding property="age" />
+		</binder>
+        <transition on="submit" to="Registration2" />
+        <transition on="cancel" to="RegistrationCancelled" bind="false"/>
+    </view-state>
+
+    <view-state id="Registration2" model="userDto">
+   <binder>
+			<binding property="fullname" />
+			<binding property="pets" />
+			<binding property="drinks" />
+			<binding property="smokes" />
+			<binding property="roomprice" />
+			<binding property="roommates" />
+		</binder>
+        <transition on="submit" to="Registration3" />
+        <transition on="previous" to="Registration1" />
+        <transition on="cancel" to="RegistrationCancelled" bind="false"/>
+    </view-state>
+    
+    <view-state id="Registration3" model="userDto">
+    <binder>
+			<binding property="ethnicity" />
+			<binding property="religion" />
+			<binding property="physical" />
+			<binding property="description" />
+		</binder>
+        <transition on="submit" to="RegistrationConfirmed">
+        	<evaluate expression="userService.registerNewUserAccount(userDto)" />
+        </transition>
+        <transition on="previous" to="Registration2" />
+        <transition on="cancel" to="RegistrationCancelled" bind="false"/>
+    </view-state>
+
+    <end-state id="RegistrationConfirmed"/>
+  
+    <end-state id="RegistrationCancelled" />
+
+
+</flow>

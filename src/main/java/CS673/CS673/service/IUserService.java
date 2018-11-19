@@ -12,4 +12,5 @@ public interface IUserService {
 	User registerNewUserAccount(UserDto accountDto) throws EmailExistsException;
 	User logUser(LoginDto user) throws UserNotExistsException, BadPasswordException;
 	User updateUser(ProfileDto profile);
+	UserDto createRegistration();
 }

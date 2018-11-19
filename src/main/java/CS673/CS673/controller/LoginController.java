@@ -48,8 +48,7 @@ public class LoginController {
 			registered = logUser(user, result);
 		}
 		if (registered == null) {
-			// Bad password or user doesn't exists 
-			//TODO make a distinction in logUser method
+			result.rejectValue("email", "message.regError");
 		}
 		if (result.hasErrors()) {
 			return new ModelAndView("Login", "userForm", user);

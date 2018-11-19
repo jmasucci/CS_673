@@ -1,5 +1,7 @@
 package CS673.CS673.code;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -7,66 +9,66 @@ import CS673.CS673.validator.PasswordMatches;
 import CS673.CS673.validator.ValidEmail;
 
 @PasswordMatches
-public class UserDto {
+public class UserDto implements Serializable {
 
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
     private String fullname;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+    //@Size(min = 1)
 	private String password;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String confirmpw;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String gender;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String city;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String pets;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String drinks;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String smokes;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String roomprice;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String ethnicity;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String religion;
 	
 	private String physical;
 	
 	private String description;
 	
-	@NotNull
-	@Size(min = 1)
+	//@NotNull
+	//@Size(min = 1)
 	private String roommates;
 	
-	@ValidEmail
-	@NotNull
-	@Size(min = 1)
+	//@ValidEmail
+	//@NotNull
+	//@Size(min = 1)
 	private String email;
 	
-	@NotNull
+	//@NotNull
 	private Integer age;
      
     public String getFullname()
