@@ -178,7 +178,7 @@
 </select>
 <br><br>
 <input type="submit" name="" value="Search"><br>
-<a href="login">Sign Out</a>
+<a href="logout">Sign Out</a>
 </form:form>
 </div>
 </div>

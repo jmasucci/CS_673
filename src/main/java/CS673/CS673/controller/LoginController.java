@@ -5,6 +5,9 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -33,41 +36,10 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Login(Map<String, Object> model) {
-		LoginDto userForm = new LoginDto();
-		model.put("userForm", userForm);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+		    return "redirect:/filter_search_index";
+		}
 		return "Login";
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView processLogin(@Valid @ModelAttribute("userForm") LoginDto user, 
-			 BindingResult result, 
-			  WebRequest request, 
-			  Errors errors) {
-		User registered = new User();
-		if (!result.hasErrors()) {
-			registered = logUser(user, result);
-		}
-		if (registered == null) {
-			result.rejectValue("email", "message.regError");
-		}
-		if (result.hasErrors()) {
-			return new ModelAndView("Login", "userForm", user);
-		}
-		else {
-			return new ModelAndView("redirect:/filter_search_index");
-		}	
-	}
-	
-	private User logUser(LoginDto user, BindingResult result) {
-		User registered = null;
-		try {
-			registered = userService.logUser(user);
-		} catch (UserNotExistsException e) {
-			return null;
-		}
-		catch (BadPasswordException e) {
-			return null;
-		}
-		return registered;
 	}
 }

@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.jaxb.SpringDataJaxb.PageDto;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import CS673.CS673.code.LoginDto;
@@ -30,8 +31,11 @@ public class UserService implements IUserService {
 					"There is an account with that email adress: "
 					+ userRegistration.getEmail());
 		}
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(11);
+		
 		// Hash password
-		String hashed = BCrypt.hashpw(userRegistration.getPassword(), BCrypt.gensalt(12));
+		String hashed = encoder.encode(userRegistration.getPassword());
 						
 		// Create user entity
 		User user = new User();
@@ -56,30 +60,7 @@ public class UserService implements IUserService {
 	}
 	
 	@Override
-	public User logUser(LoginDto user) throws UserNotExistsException, BadPasswordException {
-		String email = user.getEmail();
-		String password = user.getPassword();
-		
-		User toConnect = repository.findByEmail(email);
-		if (toConnect == null)
-		{
-			throw new UserNotExistsException("There is no user " + email);
-		}
-		else
-		{
-			if (BCrypt.checkpw(password, toConnect.getPassword()))
-			{
-				return toConnect;
-			}
-			else
-			{
-				throw new BadPasswordException("Wrong password");
-			}
-		}
-	}
-	
-	@Override
-	public User updateUser(ProfileDto profile) {
+	public User updateUser(User user, ProfileDto profile) {
 		return null;
 	}
 	
@@ -94,5 +75,10 @@ public class UserService implements IUserService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public User getUser(String username) {
+		return repository.findByEmail(username);
 	}
 }

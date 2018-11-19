@@ -10,12 +10,12 @@
     <div class="loginbox">
     <img src="resources/avatar.png" class="avatar">
         <h1>ROOMMATE FINDER</h1>
-        <form:form action="login" method="post" modelAttribute="userForm">
+        <form:form action="login" method="post">
             <p>Email</p>
-            <form:input type="text" name="" placeholder="Enter Email" path='email'/>
+            <input type='text' name='username' value='' placeholder="Enter Email">
             <p>Password</p>
-            <form:input type="password" name="" placeholder="Enter Password" path='password'/>
-            <input type="submit" name="" value="Login"/>
+            <input type='password' name='password' placeholder="Enter Password"/>
+            <input name="submit" type="submit" value="submit" />
             <a href="#">Lost your password?</a><br>
             <a href="register">Don't have an account?</a>
         </form:form>

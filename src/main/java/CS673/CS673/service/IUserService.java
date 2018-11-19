@@ -10,7 +10,7 @@ import CS673.CS673.persistance.model.User;
 
 public interface IUserService {
 	User registerNewUserAccount(UserDto accountDto) throws EmailExistsException;
-	User logUser(LoginDto user) throws UserNotExistsException, BadPasswordException;
-	User updateUser(ProfileDto profile);
+	User updateUser(User user, ProfileDto profile);
+	User getUser(String username);
 	UserDto createRegistration();
 }
