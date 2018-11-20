@@ -47,7 +47,7 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/profile", method = RequestMethod.POST)
-	public ModelAndView processRegistration(@Valid @ModelAttribute("profileForm") ProfileDto profile, 
+	public ModelAndView processUpdate(@Valid @ModelAttribute("profileForm") ProfileDto profile, 
 			 BindingResult result, 
 			  WebRequest request, 
 			  Errors errors) {
@@ -57,7 +57,7 @@ public class ProfileController {
 			user = userService.updateUser(user, profile);
 		}
 		if (user == null) {
-			result.rejectValue("email", "message.regError");
+			result.rejectValue("age", "message.regError");
 		}
 		if (result.hasErrors()) {
 			return new ModelAndView("Profile", "profileForm", profile);

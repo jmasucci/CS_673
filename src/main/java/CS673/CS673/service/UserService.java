@@ -61,7 +61,20 @@ public class UserService implements IUserService {
 	
 	@Override
 	public User updateUser(User user, ProfileDto profile) {
-		return null;
+		
+		user.setAge(profile.getAge());
+		user.setCity(profile.getCity());
+		user.setDescription(profile.getDescription());
+		user.setDrinks(profile.getDrinks());
+		user.setEthnicity(profile.getEthnicity());
+		user.setGender(profile.getGender());
+		user.setPets(profile.getPets());
+		user.setPhysical(profile.getPhysical());
+		user.setReligion(profile.getReligion());
+		user.setRoomprice(profile.getRoomprice());
+		user.setSmokes(profile.getSmokes());
+		user.setRoommates(profile.getRoommates());
+		return repository.save(user);
 	}
 	
 	@Override
