@@ -25,29 +25,17 @@ td, th {
 </head>
 <body>
 
-<table align="center">
-  <tr>
-    <th></th>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-</table>
+<c:if test="${not empty objects}">
+    <table align="center">
+        <c:forEach var="u" items="users">
+            <tr>
+                <td>${u.fullname}</td>
+                <td>${u.age}</td>
+                <td>${u.email}</td>   
+            </tr>
+        </c:forEach>
+    </table>
+</c:if>
 
 </body>
 </html>

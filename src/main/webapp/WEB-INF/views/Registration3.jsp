@@ -15,30 +15,30 @@
 
 <p>Ethnicity</p>
 <form:select name="Ethnicity" path="ethnicity">
-  <option value="Black"> Black</option>
-  <option value="Asian"> Asian</option>
-  <option value="Hispanic/Latin"> Hispanic</option>
-  <option value="NativeAmerican"> Native American</option>
-  <option value="White"> White</option>
-  <option value="PacificIslander"> Pacific Islander</option>
-  <option value="MiddleEastern"> Middle Eastern</option>
-  <option value="Indian"> Indian</option>
-  <option value="OtherEthnicity"> Other</option>
+  <option value="black"> Black</option>
+  <option value="asian"> Asian</option>
+  <option value="hispanic"> Hispanic</option>
+  <option value="nativeamerican"> Native American</option>
+  <option value="white"> White</option>
+  <option value="pacificislander"> Pacific Islander</option>
+  <option value="middleeastern"> Middle Eastern</option>
+  <option value="indian"> Indian</option>
+  <option value="other"> Other</option>
 </form:select>
 <br><br>
 
 <p>Religion</p>
 <form:select path="religion">
-    <option value="Agnostic">Agnostic</option>
-    <option value="Atheist">Atheist</option>
-    <option value="Christian">Christian</option>
-    <option value="Jewish">Jewish</option>
-    <option value="Catholic">Catholic</option>
-    <option value="Muslim">Muslim</option>
-    <option value="Hindu">Hindu</option>
-    <option value="Buddhist">Buddhist</option>
-    <option value="Sikh">Sikh</option>
-    <option value="OtherReligion">Other</option>
+    <option value="agnostic">Agnostic</option>
+    <option value="atheist">Atheist</option>
+    <option value="christian">Christian</option>
+    <option value="jewish">Jewish</option>
+    <option value="catholic">Catholic</option>
+    <option value="muslim">Muslim</option>
+    <option value="hindu">Hindu</option>
+    <option value="buddhist">Buddhist</option>
+    <option value="sikh">Sikh</option>
+    <option value="other">Other</option>
 </form:select>
 <br><br>
   

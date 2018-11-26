@@ -1,15 +1,19 @@
 package CS673.CS673.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.jaxb.SpringDataJaxb.PageDto;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import CS673.CS673.code.LoginDto;
 import CS673.CS673.code.ProfileDto;
+import CS673.CS673.code.Search;
 import CS673.CS673.code.UserDto;
 import CS673.CS673.error.BadPasswordException;
 import CS673.CS673.error.EmailExistsException;
@@ -88,6 +92,33 @@ public class UserService implements IUserService {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public List<User>	makeSearch(Search search)
+	{
+		int ageMin, ageMax;
+		String[] ages = search.getagerange().split("[-]");
+		
+		if (ages.length == 2)
+		{
+			ageMin = Integer.parseInt(ages[0]);
+			ageMax = Integer.parseInt(ages[1]);
+			String username = SecurityContextHolder.getContext().getAuthentication().getName();
+			User user = getUser(username);
+			return repository.research(search.getgender(),
+						   			   search.getcity(),
+						   			   search.getsmoking(),
+						   			   search.getdrinking(),
+						   			   search.getpets(),
+						   			   ageMin,
+						   			   ageMax,
+						   			   search.getidealroomprice(),
+						   			   search.getnumberofroommates(),
+						   			   user.getId());
+		}
+		
+		return null;
 	}
 
 	@Override

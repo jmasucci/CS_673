@@ -2,7 +2,7 @@ package CS673.CS673.code;
 
 public class Search {
 	private String gender;
-	private String state;
+	private String city;
 	private String smoking;
 	private String drinking;
 	private String pets;
@@ -14,7 +14,7 @@ public class Search {
 		return gender;
 	}
 
-	public String getidealprice() {
+	public String getidealroomprice() {
 		return idealroomprice;
 	}
 
@@ -22,8 +22,8 @@ public class Search {
 		return numberofroommates;
 	}
 
-	public String getstate() {
-		return state;
+	public String getcity() {
+		return city;
 	}
 
 	public String getagerange() {
@@ -42,7 +42,7 @@ public class Search {
 		smoking = smokingfreq;
 	}
 
-	public void setsmokingconfirm(String drinkingfreq) {
+	public void setdrinking(String drinkingfreq) {
 		drinking = drinkingfreq;
 	}
 
@@ -50,8 +50,8 @@ public class Search {
 		gender = inputgender;
 	}
 
-	public void setstate(String inputstate) {
-		state = inputstate;
+	public void setcity(String inputcity) {
+		city = inputcity;
 	}
 
 	public void setpets(String inputpet) {
@@ -63,15 +63,14 @@ public class Search {
 	}
 
 	public String getsmoking() {
-		// TODO Auto-generated method stub
 		return smoking;
 	}
 
-	public void setidealprice(String idealprice) {
+	public void setidealroomprice(String idealprice) {
 		idealroomprice = idealprice;
 	}
 
-	public void getnumberofroommates(String numberroommates) {
+	public void setnumberofroommates(String numberroommates) {
 		numberofroommates = numberroommates;
 	}
 }

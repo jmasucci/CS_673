@@ -9,19 +9,21 @@
 <div id="background">
 <h2>Look for a roommate</h2>
 <p><strong>*Required fields</strong><p> 
+<h2 align="right"><a href="profile" style="color:red">User Profile</a></h2>
+<h2 align="right"><a href="logout" style="color:red">Sign Out</a></h2>
 <div class="loginbox">
 <img src="resources/avatar.png" class="avatar">
-<form:form action="search" method="post" modelAttribute="searchForm">
+<form:form action="filter_search_index" method="post" modelAttribute="searchForm">
 <p>*Gender</p>
-<select>
+<form:select path="gender">
     <option value="male">Male</option>
     <option value="female">Female</option>
     <option value="other">Other</option>
-</select>
+</form:select>
 
 <br><br>
 <p>*City, State</p>
-<select>
+<form:select path="city">
     <option value="princeton">Princeton, NJ</option>
     <option value="cambridge">Cambridge, MA</option>
     <option value="nyc">New York City, NY</option>
@@ -123,59 +125,59 @@
     <option value="knoxville">Knoxville, TN</option>
     <option value="ames">Ames, OH</option>
     <option value="saltlakecity">Salt Lake City, UT</option>
-</select>
+</form:select>
 <br><br>
 
 <p>*The person's age range</p>
-<select>
+<form:select path="agerange">
     <option value="18-28">18-28</option>
     <option value="29-39">29-39</option>
     <option value="40-50">40-50</option>
     <option value="51-65">51-60</option>
     <option value="65+">60+</option>
-</select>
+</form:select>
 <br><br>
 
 <p>*Their Pets</p>
-<select name="Pets" multiple>
-  <option value="Cat">Cat</option>
-  <option value="Dog">Dog</option>
-  <option value="NoPets">None</option>
-</select>
+<form:select name="Pets" path="pets">
+  <option value="cat">Cat</option>
+  <option value="dog">Dog</option>
+  <option value="none">None</option>
+</form:select>
 <br><br>
 
 <p>*Their drinking habbit</p>
-<select>
-    <option value="FrequentlyDrinks">Frequently</option>
-    <option value="OccasionallyDrinks">Occasionally</option>
-    <option value="NeverDrinks">Never</option>
-</select>
+<form:select path="drinking">
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
+</form:select>
 <br><br>
 
 <p>*Their smoking habits</p>
-<select>
-    <option value="OftenSmokes">Frequently</option>
-    <option value="OccasionallySmokes">Occasionally</option>
-    <option value="NeverSmokes">Never</option>
-</select>
+<form:select path="smoking">
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
+</form:select>
 <br><br>
 
 <p>*Their ideal room price range</p>
-<select>
+<form:select path="idealroomprice">
     <option value="$800-$1200">$800-$1200</option>
     <option value="$1200-$1600">$1200-$1600</option>
     <option value="$1600-$2000">$1600-$2000</option>
 	<option value="$2000-$2400">$2000-$2400</option>
-</select>
+</form:select>
 <br><br>
 
 <p>*Number of roommates they wish to live with</p>
-<select>
+<form:select path="numberofroommates">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
 	<option value="4+">4+</option>
-</select>
+</form:select>
 <br><br>
 <input type="submit" name="" value="Search"><br>
 <a href="logout">Sign Out</a>

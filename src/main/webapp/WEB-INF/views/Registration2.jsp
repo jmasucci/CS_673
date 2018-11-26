@@ -15,25 +15,25 @@
   
 <p>*Pets</p>
 <form:select path="pets">
-  <option value="Cat">Cat</option>
-  <option value="Dog">Dog</option>
-  <option value="NoPets">None</option>
+  <option value="cat">Cat</option>
+  <option value="dog">Dog</option>
+  <option value="none">None</option>
 </form:select>
 <br><br>
 
 <p>*Drinks</p>
 <form:select path="drinks">
-    <option value="Frequently">Frequently</option>
-    <option value="Occasionally">Occasionally</option>
-    <option value="Never">Never</option>
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
 </form:select>
 <br><br>
 
 <p>*Smokes</p>
 <form:select path="smokes">
-    <option value="Often">Frequently</option>
-    <option value="Occasionally">Occasionally</option>
-    <option value="Never">Never</option>
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
 </form:select>
 <br><br>
 

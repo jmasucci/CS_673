@@ -3,13 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-<body  background="resources/pic1.jpg">
+<body">
 <title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/user_profile_style.css">
 <div id="background">
 <h2>Modify your user profile</h2>
 <p><strong>*Required</strong><p> 
-
+<h2 align="right"><a href="filter_search_index" style="color:red">GO BACK - Search</a></h2>
+<h2 align="right"><a href="logout" style="color:red">Sign Out</a></h2>
 <div class="loginbox">
 <img src="resources/avatar.png" class="avatar">
 <form:form name="myForm" action="profile" method="post" modelAttribute="profileForm">
@@ -133,25 +134,25 @@
 
 <p>*Pets</p>
 <form:select path="pets">
-  <option value="Cat">Cat</option>
-  <option value="Dog">Dog</option>
-  <option value="NoPets">None</option>
+  <option value="cat">Cat</option>
+  <option value="dog">Dog</option>
+  <option value="non">None</option>
 </form:select>
 <br><br>
 
 <p>*Drinks</p>
 <form:select path="drinks">
-    <option value="Frequently">Frequently</option>
-    <option value="Occasionally">Occasionally</option>
-    <option value="Never">Never</option>
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
 </form:select>
 <br><br>
 
 <p>*Smokes</p>
 <form:select path="smokes">
-    <option value="Often">Frequently</option>
-    <option value="Occasionally">Occasionally</option>
-    <option value="Never">Never</option>
+    <option value="frequently">Frequently</option>
+    <option value="occasionally">Occasionally</option>
+    <option value="never">Never</option>
 </form:select>
 <br><br>
 
@@ -175,30 +176,30 @@
 
 <p>Ethnicity</p>
 <form:select path="ethnicity" name="Ethnicity">
-  <option value="Black"> Black</option>
-  <option value="Asian"> Asian</option>
-  <option value="Hispanic/Latin"> Hispanic</option>
-  <option value="NativeAmerican"> Native American</option>
-  <option value="White"> White</option>
-  <option value="PacificIslander"> Pacific Islander</option>
-  <option value="MiddleEastern"> Middle Eastern</option>
-  <option value="Indian"> Indian</option>
-  <option value="OtherEthnicity"> Other</option>
+  <option value="black"> Black</option>
+  <option value="asian"> Asian</option>
+  <option value="hispanic"> Hispanic</option>
+  <option value="nativeamerican"> Native American</option>
+  <option value="white"> White</option>
+  <option value="pacificislander"> Pacific Islander</option>
+  <option value="niddleeastern"> Middle Eastern</option>
+  <option value="indian"> Indian</option>
+  <option value="other"> Other</option>
 </form:select>
 <br><br>
 
 <p>Religion</p>
 <form:select path="religion">
-    <option value="Agnostic">Agnostic</option>
-    <option value="Atheist">Atheist</option>
-    <option value="Christian">Christian</option>
-    <option value="Jewish">Jewish</option>
-    <option value="Catholic">Catholic</option>
-    <option value="Muslim">Muslim</option>
-    <option value="Hindu">Hindu</option>
-    <option value="Buddhist">Buddhist</option>
-    <option value="Sikh">Sikh</option>
-    <option value="OtherReligion">Other</option>
+    <option value="agnostic">Agnostic</option>
+    <option value="atheist">Atheist</option>
+    <option value="christian">Christian</option>
+    <option value="jewish">Jewish</option>
+    <option value="catholic">Catholic</option>
+    <option value="muslim">Muslim</option>
+    <option value="hindu">Hindu</option>
+    <option value="buddhist">Buddhist</option>
+    <option value="sikh">Sikh</option>
+    <option value="other">Other</option>
 </form:select>
 <br><br>
   

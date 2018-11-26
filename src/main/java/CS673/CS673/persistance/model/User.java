@@ -1,5 +1,7 @@
 package CS673.CS673.persistance.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="users")
-public class User
+public class User implements Serializable
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
