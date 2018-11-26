@@ -102,10 +102,46 @@ public class DemoData implements ApplicationRunner {
     	test5.setPhysical("Hey, I'm a demo");
     	test5.setDescription("Hey, I'm a demo");
     	
+    	User test6 = new User();
+    	test6.setFullname("Corentin Bordes");
+    	test6.setEmail("bordes.corentin@gmail.com");
+    	test6.setPassword(new BCryptPasswordEncoder(12).encode("test"));
+    	test6.setGender("male");
+    	test6.setAge(25);
+    	test6.setCity("princeton");
+    	test6.setPets("cat");
+    	test6.setDrinks("frequently");
+    	test6.setSmokes("frequently");
+    	test6.setRoomprice("$800-$1200");
+    	test6.setRoommates("1");
+    	test6.setEthnicity("white");
+    	test6.setReligion("agnostic");
+    	test6.setPhysical("Hey, I'm a demo");
+    	test6.setDescription("Hey, I'm a demo");
+    	
+    	User test7 = new User();
+    	test7.setFullname("Corentin Bordes");
+    	test7.setEmail("corentin.bordes@epitech.eu");
+    	test7.setPassword(new BCryptPasswordEncoder(12).encode("test"));
+    	test7.setGender("male");
+    	test7.setAge(25);
+    	test7.setCity("princeton");
+    	test7.setPets("cat");
+    	test7.setDrinks("frequently");
+    	test7.setSmokes("frequently");
+    	test7.setRoomprice("$800-$1200");
+    	test7.setRoommates("1");
+    	test7.setEthnicity("white");
+    	test7.setReligion("agnostic");
+    	test7.setPhysical("Hey, I'm a demo");
+    	test7.setDescription("Hey, I'm a demo");
+    	
         repository.save(test);
         repository.save(test2);
         repository.save(test3);
         repository.save(test4);
         repository.save(test5);
+        repository.save(test6);
+        repository.save(test7);
 	}
 }

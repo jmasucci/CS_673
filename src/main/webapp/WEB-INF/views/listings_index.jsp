@@ -35,7 +35,7 @@ td, th {
     <table align="center">
         <c:forEach var="u" items="${users}">
             <tr>
-                <td>${u.fullname}</td>
+                <td><a href="<c:url value='/single_listing_index/${u.id}' />" >${u.fullname}</a></td>
                 <td>${u.age}</td>
                 <td>${u.email}</td>   
             </tr>

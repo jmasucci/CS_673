@@ -1,6 +1,7 @@
 package CS673.CS673.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -124,5 +125,13 @@ public class UserService implements IUserService {
 	@Override
 	public User getUser(String username) {
 		return repository.findByEmail(username);
+	}
+	
+	@Override
+	public User getUser(Integer id) {
+		Optional<User> user = repository.findById(id);
+		if (user.isPresent())
+			return user.get();
+		return null;
 	}
 }

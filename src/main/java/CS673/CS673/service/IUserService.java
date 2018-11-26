@@ -15,6 +15,7 @@ public interface IUserService {
 	User 		registerNewUserAccount(UserDto accountDto) throws EmailExistsException;
 	User 		updateUser(User user, ProfileDto profile);
 	User 		getUser(String username);
+	User 		getUser(Integer id);
 	UserDto 	createRegistration();
 	List<User>	makeSearch(Search search);
 }
