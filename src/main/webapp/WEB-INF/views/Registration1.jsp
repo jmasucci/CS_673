@@ -7,10 +7,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="resources/bootstrap/js/Registration1.js"></script>
 </head>
-
-<body background="resources/pic1.jpg">
 <title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/profile_step1_style.css">
+<body background="resources/pic1.jpg">
 <h2>Profile Creation - Step 1</h2>
 <p>*Please fill out <strong>ALL</strong> the details below<p>
 
@@ -148,8 +147,8 @@
     <option value="saltlakecity">Salt Lake City, UT</option>
 </form:select>
 <br><br>
-<p>*Your age</p>
-<form:input path="age" type="number" name="age" placeholder="Enter age"></form:input>
+<p>*Enter age</p>
+<form:input path="age" type="number" name="age" placeholder="Enter Age"></form:input>
 <br><br>
 <input type="submit" name="_eventId_cancel" value="Cancel">
 <input type="submit" name="_eventId_submit" id="validate" value="Next">

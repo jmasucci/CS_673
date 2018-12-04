@@ -5,11 +5,12 @@ body{
     background-size: cover;
     background-position: top left;
     font-family: sans-serif;
+    background-image: url("pic1.jpg");
 }
 
 .loginbox{
     width: 320px;
-    height: 720px;
+    height: 800px;
     background: #000;
     color: #fff;
     top: 55%;
@@ -26,7 +27,7 @@ body{
     border-radius: 50%;
     position: absolute;
     top: -50px;
-    left: calc(50% - 50px);
+    left: calc(50%, -50px);
 }
 
 

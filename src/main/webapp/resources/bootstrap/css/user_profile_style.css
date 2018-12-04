@@ -2,11 +2,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-size: cover;
+    background-position: top left;
+    background-image: url("pic1.jpg");
 }
  
 .loginbox{
     width: 520px;
-    height: 1010px;
+    height: 810px;
     background: #000;
     color: #fff;
     top: 95%;
@@ -23,7 +26,7 @@ body{
     border-radius: 50%;
     position: absolute;
     top: -50px;
-    left: calc(50% - 50px);
+    left: calc(50%, -50px);
 }
 
 .loginbox p{

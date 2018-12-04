@@ -3,9 +3,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-<body background="resources/pic1.jpg">
 <title>ROOMMATE FINDER-STEP 2</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/profile_step2_style.css">
+<body background="resources/pic1.jpg">
 <h2>Profile Creation - Step 2</h2>
 <p>*Please fill out <strong>ALL</strong> the details below<p> 
 <div class="loginbox">
@@ -54,11 +54,12 @@
 	<option value="4+">4+</option>
 </form:select>
 <br><br>
-
+<br><br>
 <input type="submit" name="_eventId_cancel" value="Cancel">
 <input type="submit" name="_eventId_previous" value="Prev">
 <input type="submit" name="_eventId_submit" value="Next">
 <br>
 </form:form>
+</div>
 </body>
 </html>

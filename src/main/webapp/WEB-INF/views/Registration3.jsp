@@ -49,7 +49,8 @@
 <p>Tell us more about yourself</p>
 <p>(hobbies,activities,food,interests,books,movies,etc...)</p>
 <form:textarea rows="4" cols="50" name="comment" maxlength="300" path="description" placeholder="Enter text here..."/>
-
+<br><br>
+<br><br>
 <input type="submit" name="_eventId_cancel" value="Cancel">
 <input type="submit" name="_eventId_previous" value="Prev">
 <input type="submit" name="_eventId_submit" value="Register">

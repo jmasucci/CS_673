@@ -3,10 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
-<body>
-<title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/filter_search_style.css">
-<div id="background">
+<title>ROOMMATE FINDER</title>
+
+<body background="resources/pic1.jpg">
 <h2>Look for a roommate</h2>
 <p><strong>*Required fields</strong><p> 
 <h2 align="right"><a href="profile" style="color:red">User Profile</a></h2>
@@ -179,10 +179,9 @@
 	<option value="4+">4+</option>
 </form:select>
 <br><br>
+<br><br>
 <input type="submit" name="" value="Search"><br>
-<a href="logout">Sign Out</a>
 </form:form>
-</div>
 </div>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-<html>
-<body">
-<title>ROOMMATE FINDER</title>
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/user_profile_style.css">
-<div id="background">
+<html>
+<title>ROOMMATE FINDER</title>
+<body background="resources/pic1.jpg">
+
+
 <h2>Modify your user profile</h2>
 <p><strong>*Required</strong><p> 
 <h2 align="right"><a href="filter_search_index" style="color:red">GO BACK - Search</a></h2>
@@ -215,7 +215,6 @@
 <input type="submit" name="" value="Update">
 
 </form:form>
-</div>
 </div>
 </body>
 </html>
